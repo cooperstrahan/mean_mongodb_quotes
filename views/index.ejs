@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Quotes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        border-radius: 5px;
+    }
+    .cont {
+        width: 40%;
+        margin: 2.5% auto;
+        border: 2px solid blue;
+        text-align: center;
+    }
+    button {
+        display: inline;
+    }
+</style>
+<body>
+    <div class="cont">
+        <h1>Welcome to Quoting Dojo</h1>
+        <%- JSON.stringify(messages) %>
+        <% if(messages.registration) { %>
+            <% for (var x of messages.entry) { %>
+        <h3><%=x%></h3>
+            <% } %>
+        <% } %>
+        <form action="/write", method="POST" class=form-group>
+            <p>Your name: <input name="name" type="text"></p>
+            <p>Your name: <textarea name="quote"></textarea></p>
+            <button class="btn btn-success">Add my Quote!</button> 
+        </form>
+        <a href="/quotes"><button class="btn btn-primary">Skip to quotes!</button></a>
+    </div>
+</body>
+</html>
