@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/quote_database', {useNewUrlParser: true});
+const mongoose = require('mongoose');
+require('../config/mongoose.js');
 
 var QuoteSchema = new mongoose.Schema({
     name: {type: String, required: true, minlength: 2},
